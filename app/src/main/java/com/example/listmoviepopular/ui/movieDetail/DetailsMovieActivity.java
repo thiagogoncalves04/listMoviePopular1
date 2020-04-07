@@ -1,11 +1,13 @@
 package com.example.listmoviepopular.ui.movieDetail;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.listmoviepopular.R;
 import com.example.listmoviepopular.data.model.Movie;
+import com.squareup.picasso.Picasso;
 
 public class DetailsMovieActivity extends AppCompatActivity {
 
@@ -16,15 +18,17 @@ public class DetailsMovieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_movie);
 
-        //       ImageView imageDetailMovie = findViewById(R.id.image_poster_detail);
+        ImageView imageDetailMovie = findViewById(R.id.image_poster_detail);
         TextView textTitleMovie = findViewById(R.id.text_title_movie);
         TextView textOverview= findViewById(R.id.text_overview);
         TextView textVoteAverage = findViewById(R.id.text_vote_average);
 
-
-        final Movie movie = (Movie) getIntent().getSerializableExtra(EXTRA_MOVIE);
+        final Movie movie = (Movie) getIntent().getParcelableExtra(EXTRA_MOVIE);
         textTitleMovie.setText(movie.getOriginalTitle());
         textOverview.setText(movie.getOverview());
-//        textVoteAverage.setText(movie.getVoteAverage().toString());
+        textVoteAverage.setText(movie.getVoteAverage().toString());
+        Picasso.get()
+                .load("https://image.tmdb.org/t/p/w342/" + movie.getPosterPath())
+                .into(imageDetailMovie);
     }
 }

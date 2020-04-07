@@ -1,7 +1,5 @@
 package com.example.listmoviepopular.data.network;
 
-import com.example.listmoviepopular.data.network.MovieResponse;
-
 import java.util.List;
 
 public class MoviesResult {

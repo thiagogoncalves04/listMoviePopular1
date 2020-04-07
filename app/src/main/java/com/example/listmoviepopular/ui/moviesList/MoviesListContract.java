@@ -5,15 +5,16 @@ import com.example.listmoviepopular.data.model.Movie;
 import java.util.List;
 
 public interface MoviesListContract {
-    interface MoviesListView{
 
+    interface MoviesListView {
         void showMovies(List<Movie> movies);
+
         void showError();
     }
 
-    interface MoviePresenter{
-
+    interface MoviePresenter {
         void getMovies();
+
         void destroyView();
     }
 }

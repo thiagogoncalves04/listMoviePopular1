@@ -1,16 +1,20 @@
 package com.example.listmoviepopular.ui.moviesList;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
+
 import android.widget.Toast;
 
 import com.example.listmoviepopular.R;
 import com.example.listmoviepopular.data.model.Movie;
 import com.example.listmoviepopular.ui.movieDetail.DetailsMovieActivity;
+
 
 import java.util.List;
 
@@ -43,10 +47,16 @@ public class ListMovieActivity extends AppCompatActivity implements MoviesListCo
 
         moviesAdapter = new MoviesListAdapter(this);
 
-        RecyclerView.LayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        final RecyclerView.LayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
 
         recyclerMovies.setLayoutManager(gridLayoutManager);
         recyclerMovies.setAdapter(moviesAdapter);
+        recyclerMovies.addOnScrollListener(new PaginationScrollListener(gridLayoutManager) {
+            @Override
+            protected void loadMoreItems() {
+                presenter.getMovies();
+            }
+        });
     }
 
     @Override

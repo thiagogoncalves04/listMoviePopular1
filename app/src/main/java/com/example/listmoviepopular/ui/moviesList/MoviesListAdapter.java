@@ -1,7 +1,7 @@
 package com.example.listmoviepopular.ui.moviesList;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,14 +30,12 @@ public class MoviesListAdapter  extends RecyclerView.Adapter<MoviesListAdapter.M
     @Override
     public MovieListViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.movie_item, viewGroup, false);
-
         return new MovieListViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MovieListViewHolder movieListViewHolder, int i) {
         movieListViewHolder.bind(movies.get(i));
-
 
     }
 
@@ -65,7 +63,6 @@ public class MoviesListAdapter  extends RecyclerView.Adapter<MoviesListAdapter.M
                     }
                 }
             });
-
         }
 
         public void bind(Movie movie){

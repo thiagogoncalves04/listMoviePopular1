@@ -7,7 +7,6 @@ public class ApiService {
     private static MoviesService INSTANCE;
     public static final String BASE_URL = "https://api.themoviedb.org/3/";
 
-
     public static MoviesService getInstance() {
         if (INSTANCE == null) {
             Retrofit retrofit = new Retrofit.Builder()
@@ -19,6 +18,5 @@ public class ApiService {
         }
 
         return INSTANCE;
-
     }
 }

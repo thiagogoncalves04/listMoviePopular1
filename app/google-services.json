@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "892244246457",
+    "firebase_url": "https://listmoviespopular-ad0d1.firebaseio.com",
+    "project_id": "listmoviespopular-ad0d1",
+    "storage_bucket": "listmoviespopular-ad0d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892244246457:android:b574d29b10ca8946074068",
+        "android_client_info": {
+          "package_name": "com.example.listmoviepopular"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892244246457-mc99dn1io2mcfkka6jeu0f5rpomo98b0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClwTUB9xTU5cY3ZwIjfUY2Cl18_XMXmLA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892244246457-mc99dn1io2mcfkka6jeu0f5rpomo98b0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
