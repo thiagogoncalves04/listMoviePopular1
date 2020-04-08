@@ -20,7 +20,6 @@ public class MoviePresenter implements MoviesListContract.MoviePresenter {
         this.view = view;
     }
 
-
     @Override
     public void getMovies() {
         if (isLoading && !isLastPage()) {

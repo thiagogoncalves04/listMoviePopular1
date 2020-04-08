@@ -87,6 +87,8 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
             Toast.makeText(this, "Imvalid e-mail", Toast.LENGTH_SHORT).show();
         } else if (!isValidPassword()) {
             Toast.makeText(this, "Imvalid password", Toast.LENGTH_SHORT).show();
+        } else{
+            presenter.toLogin(edtEmail.getText().toString(), edtEmail.getText().toString());
         }
     }
 

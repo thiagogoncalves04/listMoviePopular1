@@ -6,12 +6,12 @@ public class LoginPresenter implements LoginInterface.Presenter, LoginInterface.
 
     public LoginPresenter(LoginInterface.View view) {
         this.view = view;
+        model = new LoginModel(this);
     }
 
     @Override
     public void voidOnDestroy() {
         view = null;
-
     }
 
     @Override
@@ -27,6 +27,8 @@ public class LoginPresenter implements LoginInterface.Presenter, LoginInterface.
     @Override
     public void onSucess() {
         if(view!=null){
+            view.enableInputs();
+            view.hidePrgress();
             view.onLogin();
         }
 
@@ -35,7 +37,10 @@ public class LoginPresenter implements LoginInterface.Presenter, LoginInterface.
     @Override
     public void onError(String error) {
         if(view!=null){
+            view.enableInputs();
+            view.hidePrgress();
             view.onError(error);
+
         }
     }
 }
