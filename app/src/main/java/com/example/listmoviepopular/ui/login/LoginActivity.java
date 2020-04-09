@@ -2,25 +2,28 @@ package com.example.listmoviepopular.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
-
-
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.listmoviepopular.R;
+import com.example.listmoviepopular.ui.moviesList.ListMovieActivity;
+import com.example.listmoviepopular.ui.register.RegisterActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class LoginActivity extends AppCompatActivity implements LoginInterface.View {
 
-    private TextInputEditText edtEmail, edtPassword;
+    private TextInputEditText edtEmail;
+    private TextInputEditText edtPassword;
+    private TextView goRegister;
     private Button btnLogin;
     private MaterialDialog dialog;
     private LoginInterface.Presenter presenter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,12 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
                 handleLogin();
             }
         });
+        goRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goRegister();
+            }
+        });
     }
 
     private void setViews() {
@@ -42,6 +51,7 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
         edtEmail = findViewById(R.id.edit_text_email_id);
         edtPassword = findViewById(R.id.edit_text_password_id);
         btnLogin = findViewById(R.id.button_login);
+        goRegister = findViewById(R.id.text_register);
 
         MaterialDialog.Builder builder = new MaterialDialog.Builder(this)
                 .title("Carregando")
@@ -84,11 +94,11 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
     @Override
     public void handleLogin() {
         if (!isValidEmail()) {
-            Toast.makeText(this, "Imvalid e-mail", Toast.LENGTH_SHORT).show();
+            edtPassword.setError("Email incorret");
         } else if (!isValidPassword()) {
-            Toast.makeText(this, "Imvalid password", Toast.LENGTH_SHORT).show();
+            edtPassword.setError("Password incorret");
         } else{
-            presenter.toLogin(edtEmail.getText().toString(), edtEmail.getText().toString());
+            presenter.toLogin(edtEmail.getText().toString().trim(), edtPassword.getText().toString().trim());
         }
     }
 
@@ -99,10 +109,9 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
 
     @Override
     public boolean isValidPassword() {
-        if (TextUtils.isEmpty(edtPassword.getText().toString()) &&
+        if (TextUtils.isEmpty(edtPassword.getText().toString()) ||
                 edtPassword.getText().toString().length() < 4) {
             Toast.makeText(this, "Invalid Password", Toast.LENGTH_SHORT).show();
-            edtPassword.setError("Password incorret");
             return false;
         } else {
             return true;
@@ -111,12 +120,23 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
 
     @Override
     public void onLogin() {
-        Toast.makeText(this, "You have successfully logged on", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, ListMovieActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void goRegister() {
+        startActivity( new Intent(this, RegisterActivity.class));
     }
 
     @Override
     public void onError(String error) {
-        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "User not found or password incorrect!", Toast.LENGTH_SHORT).show();
+    }
 
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        presenter.onDestroy();
     }
 }

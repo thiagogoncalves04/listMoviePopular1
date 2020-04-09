@@ -12,18 +12,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <include layout="@layout/toolbar_actionbar"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="4dp"
             android:background="@color/colorAccent"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_text_email_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_name_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -33,12 +35,12 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_text_password_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_email_register_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -46,20 +48,19 @@
                 android:hint="Email*" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_genero_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-            android:id="@+id/spinner_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Gênero"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp">
-        </com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner>
-        </com.google.android.material.textfield.TextInputLayout>
+        <!--<com.google.android.material.textfield.TextInputLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp">-->
+        <!--<com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner-->
+            <!--android:id="@+id/edit_genero_id"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:hint="Gênero"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:layout_marginLeft="20dp">-->
+        <!--</com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner>-->
+        <!--</com.google.android.material.textfield.TextInputLayout>-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -100,9 +101,10 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/btn_register_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back"
+            android:text="Save"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/colorAccent"

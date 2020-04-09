@@ -76,7 +76,7 @@ public class MoviesListAdapter  extends RecyclerView.Adapter<MoviesListAdapter.M
     }
 
     public void setMovies(List<Movie> movies){
-        this.movies = movies;
+        this.movies.addAll(movies);
         notifyDataSetChanged();
     }
 }

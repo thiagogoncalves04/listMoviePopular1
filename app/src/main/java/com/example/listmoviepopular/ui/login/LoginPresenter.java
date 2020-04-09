@@ -10,7 +10,7 @@ public class LoginPresenter implements LoginInterface.Presenter, LoginInterface.
     }
 
     @Override
-    public void voidOnDestroy() {
+    public void onDestroy() {
         view = null;
     }
 
@@ -31,7 +31,6 @@ public class LoginPresenter implements LoginInterface.Presenter, LoginInterface.
             view.hidePrgress();
             view.onLogin();
         }
-
     }
 
     @Override
@@ -40,7 +39,6 @@ public class LoginPresenter implements LoginInterface.Presenter, LoginInterface.
             view.enableInputs();
             view.hidePrgress();
             view.onError(error);
-
         }
     }
 }

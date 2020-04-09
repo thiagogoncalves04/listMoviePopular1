@@ -1,43 +1,32 @@
-package com.example.listmoviepopular.ui.login;
+package com.example.listmoviepopular.ui.register;
 
-public interface LoginInterface {
-
+public interface RegisterInterface {
     interface View {
         void disableInputs();
-
         void enableInputs();
 
         void showProgress();
-
         void hidePrgress();
 
-        void handleLogin();
-
-        boolean isValidEmail();
-
-        boolean isValidPassword();
-
-        void onLogin();
-
-        void goRegister();
+        void handleRegister();
+        boolean validateViews();
 
         void onError(String error);
+        void onLogin();
 
     }
 
     interface Presenter {
         void onDestroy();
-
-        void toLogin(String email, String password);
+        void doRegister(String name, String email, String password);
     }
 
     interface Model {
-        void doLogin(String email, String password);
+        void onRegister(String name, String email, String password);
     }
 
     interface Tasklistener {
         void onSucess();
-
         void onError(String error);
     }
 
