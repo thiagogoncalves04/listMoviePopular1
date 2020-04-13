@@ -1,6 +1,6 @@
 package com.example.listmoviepopular.ui.login;
 
-public interface LoginInterface {
+public interface LoginContract {
 
     interface View {
         void disableInputs();
@@ -22,7 +22,6 @@ public interface LoginInterface {
         void goRegister();
 
         void onError(String error);
-
     }
 
     interface Presenter {
@@ -40,5 +39,4 @@ public interface LoginInterface {
 
         void onError(String error);
     }
-
 }

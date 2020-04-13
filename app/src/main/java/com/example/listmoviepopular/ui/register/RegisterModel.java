@@ -9,11 +9,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
-public class RegisterModel implements RegisterInterface.Model {
-    private RegisterInterface.Tasklistener listener;
+public class RegisterModel implements RegisterContract.Model {
+    private RegisterContract.Tasklistener listener;
     private FirebaseAuth auth;
 
-    public RegisterModel(RegisterInterface.Tasklistener listener) {
+    public RegisterModel(RegisterContract.Tasklistener listener) {
         this.listener = listener;
         auth = FirebaseAuth.getInstance();
     }

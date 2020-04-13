@@ -11,12 +11,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class MoviePresenter implements MoviesListContract.MoviePresenter {
+public class MovieListPresenter implements MoviesListContract.MoviePresenter {
     private MoviesListContract.MoviesListView view;
     private int actualPage = 1;
     private boolean isLoading = false;
 
-    public MoviePresenter(MoviesListContract.MoviesListView view) {
+    public MovieListPresenter(MoviesListContract.MoviesListView view) {
         this.view = view;
     }
 
@@ -58,5 +58,4 @@ public class MoviePresenter implements MoviesListContract.MoviePresenter {
     public boolean isLastPage(){
         return actualPage == 1000;
     }
-
 }

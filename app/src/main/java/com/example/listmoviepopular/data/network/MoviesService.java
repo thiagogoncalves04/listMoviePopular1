@@ -8,5 +8,4 @@ public interface MoviesService {
 
         @GET("movie/popular")
         Call<MoviesResult> getPopularMovies(@Query("api_key") String apiKey, @Query("page") int pageIndex);
-
 }

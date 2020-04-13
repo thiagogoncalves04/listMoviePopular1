@@ -10,20 +10,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.listmoviepopular.R;
 import com.example.listmoviepopular.ui.moviesList.ListMovieActivity;
 import com.example.listmoviepopular.ui.register.RegisterActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class LoginActivity extends AppCompatActivity implements LoginInterface.View {
+public class LoginActivity extends AppCompatActivity implements LoginContract.View {
 
     private TextInputEditText edtEmail;
     private TextInputEditText edtPassword;
     private TextView goRegister;
     private Button btnLogin;
     private MaterialDialog dialog;
-    private LoginInterface.Presenter presenter;
+    private LoginContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +60,6 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
                 .cancelable(false)
                 .progress(true, 0);
         dialog = builder.build();
-
     }
 
     private void setInputs(boolean enable) {
@@ -71,13 +71,11 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
     @Override
     public void disableInputs() {
         setInputs(false);
-
     }
 
     @Override
     public void enableInputs() {
         setInputs(true);
-
     }
 
     @Override
@@ -88,7 +86,6 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
     @Override
     public void hidePrgress() {
         dialog.dismiss();
-
     }
 
     @Override
@@ -97,7 +94,7 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
             edtPassword.setError("Email incorret");
         } else if (!isValidPassword()) {
             edtPassword.setError("Password incorret");
-        } else{
+        } else {
             presenter.toLogin(edtEmail.getText().toString().trim(), edtPassword.getText().toString().trim());
         }
     }
@@ -126,7 +123,7 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
 
     @Override
     public void goRegister() {
-        startActivity( new Intent(this, RegisterActivity.class));
+        startActivity(new Intent(this, RegisterActivity.class));
     }
 
     @Override
@@ -135,7 +132,7 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
         presenter.onDestroy();
     }

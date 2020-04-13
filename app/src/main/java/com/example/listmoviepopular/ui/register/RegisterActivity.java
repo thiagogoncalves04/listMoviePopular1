@@ -14,13 +14,12 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.listmoviepopular.R;
 import com.example.listmoviepopular.ui.moviesList.ListMovieActivity;
 import com.google.android.material.textfield.TextInputEditText;
-import java.util.Objects;
 
-public class RegisterActivity extends AppCompatActivity implements RegisterInterface.View {
+public class RegisterActivity extends AppCompatActivity implements RegisterContract.View {
     private TextInputEditText edtName, edtEmail, edtPassword, edtPassword2;
     private Button btnRegister;
     private MaterialDialog dialog;
-    private RegisterInterface.Presenter presenter;
+    private RegisterContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,11 +1,11 @@
 package com.example.listmoviepopular.ui.register;
 
-public class RegisterPresenter implements RegisterInterface.Presenter, RegisterInterface.Tasklistener {
+public class RegisterPresenter implements RegisterContract.Presenter, RegisterContract.Tasklistener {
 
-    private RegisterInterface.View view;
-    private RegisterInterface.Model model;
+    private RegisterContract.View view;
+    private RegisterContract.Model model;
 
-    public RegisterPresenter(RegisterInterface.View view) {
+    public RegisterPresenter(RegisterContract.View view) {
         this.view = view;
         model = new RegisterModel(this);
     }
@@ -22,7 +22,6 @@ public class RegisterPresenter implements RegisterInterface.Presenter, RegisterI
             view.showProgress();
         }
         model.onRegister(name, email, password);
-
     }
 
     @Override

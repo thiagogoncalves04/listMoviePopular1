@@ -1,6 +1,6 @@
 package com.example.listmoviepopular.ui.register;
 
-public interface RegisterInterface {
+public interface RegisterContract {
     interface View {
         void disableInputs();
         void enableInputs();

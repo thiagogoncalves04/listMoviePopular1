@@ -16,7 +16,6 @@ public class ApiService {
 
             INSTANCE = retrofit.create(MoviesService.class);
         }
-
         return INSTANCE;
     }
 }

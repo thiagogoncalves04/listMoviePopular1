@@ -1,21 +1,15 @@
 package com.example.listmoviepopular.ui.moviesList;
 
 import android.content.Intent;
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
-
 import android.widget.Toast;
-
 import com.example.listmoviepopular.R;
 import com.example.listmoviepopular.data.model.Movie;
 import com.example.listmoviepopular.ui.movieDetail.DetailsMovieActivity;
-
-
 import java.util.List;
 
 public class ListMovieActivity extends AppCompatActivity implements MoviesListContract.MoviesListView,
@@ -32,9 +26,8 @@ public class ListMovieActivity extends AppCompatActivity implements MoviesListCo
 
         settingAdapter();
 
-        presenter = new MoviePresenter(this);
+        presenter = new MovieListPresenter(this);
         presenter.getMovies();
-
     }
 
     private void settingToolbar() {
